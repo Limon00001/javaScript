@@ -100,9 +100,9 @@ var eight = 8;  // Initialize eight
 
 
 // According to let:
-let nine = 9;  // Initialize nine
-console.log(nine, " ", ten);         // ReferenceError
-let ten = 10;  // Initialize ten
+// let nine = 9;  // Initialize nine
+// console.log(nine, " ", ten);         // ReferenceError
+// let ten = 10;  // Initialize ten
 /*
     let nine = 9;  // Initialize nine
     console.log(nine, " ", ten);         // ReferenceError
@@ -120,6 +120,51 @@ let ten = 10;  // Initialize ten
     console.log(nine, " ", ten);         // ReferenceError
     ten = undefined;   // assign undefined
     ten = 10;   // Initialize ten
+*/
+
+
+
+// Function hoisting:
+// function also hoisted to top.
+
+myFunction();
+function myFunction(){
+    accessories = `airpod`;
+    var accessories;
+    console.log(accessories);
+}
+// Basically it works:
+/*
+    function myFunction(){
+        var accessories;
+        accessories = `airpod`;
+        console.log(accessories);
+    }
+    myFunction();
+*/
+
+
+// But ->
+/*
+    fun();
+    const fun = function (){
+        accessories = `airpod`;
+        var accessories;
+        console.log(accessories);
+    }
+    // Output: ReferenceError
+
+
+    // It works like that -->
+    const fun;
+    fun();
+    fun = undefined;
+    fun = function (){
+        var accessories;
+        accessories = `airpod`;
+        console.log(accessories);
+    }
+    // Output: ReferenceError
 */
 
 

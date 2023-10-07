@@ -27,6 +27,7 @@ let positionCount = function() {
 console.log(positionCount());
 
 
+// Example-02:
 // Input: linearSearch(['a', 'b', 'c', 'd', 'c'], 'c')
 // Output: 2 or not found.
 // Impliment this
@@ -55,7 +56,7 @@ console.log(linearSearch(array, targetElement));
 
 
 // 2nd method:
-function linearSearch(arr, val) {
+function linearSearchSecond(arr, val) {
 
     let length = arr.length;
     for (let i = 0; i < length; i++) {
@@ -67,4 +68,102 @@ function linearSearch(arr, val) {
     return `Not Found!`;
 }
 
-console.log(linearSearch(linearSearch(['a', 'b', 'c', 'd', 'c'], 'c')));
+console.log(linearSearchSecond(['a', 'b', 'c', 'd', 'c'], 'c'));
+
+
+
+// Example-03: Find the largest string and its index from an array
+function findLongestString(arr) {
+    let longestString = '';
+    
+    arr.forEach(function(str) {
+        if (str.length > longestString.length) {
+            longestString = str;
+        }
+    });
+    
+    return [longestString, arr.indexOf(longestString)];
+}
+
+let fruits = ['apple', 'banana', 'kiwi', 'orange', 'strawberry'];
+
+console.log('Longest string in the array is:', findLongestString(fruits));
+
+
+// 2nd method:
+function longestStringSecond(names){
+    let longestWord = '';
+    
+for(let nameVal of names) {
+    if(nameVal.length > longestWord.length) {
+        longestWord = nameVal;
+    }
+}
+
+return [longestWord, names.indexOf(longestWord)];
+}
+
+console.log(longestStringSecond(['Clayton White', 'Liberty Hill', 'Idir Kaloki', 'Ellie Lee', 'Leon King', `Charolette Robertson`]));
+
+
+
+// Example-04: To determine numbers from 1 to 100 are divisible by both 3 and 5 and only 3, 5 also?
+for (let i = 1; i <= 100; i++) {
+    let divisibleBy3 = i % 3 === 0;
+    let divisibleBy5 = i % 5 === 0;
+
+    if (divisibleBy3 && divisibleBy5) {
+        console.log(`${i} is divisible by both 3 and 5`);
+    } else if (divisibleBy3) {
+        console.log(`${i} is divisible by 3 only`);
+    } else if (divisibleBy5) {
+        console.log(`${i} is divisible by 5 only`);
+    } else {
+        console.log(i);
+    }
+}
+
+
+// Example-05: Remove falsy value from an array
+/*
+    Falsy values -> `undefined, null, false, 0, '', NaN`
+*/
+// 1st method:
+const fullArray = [`javaScript`, undefined, ``, false, 55, `python`, true, NaN, `stack`, null];
+
+const filterArray = fullArray.filter(function(element) {
+    if(element) {
+        return true;
+    } else {
+        return false;
+    }
+});
+
+console.log(filterArray);
+
+
+// 2nd method: using Boolean
+const filterArraySecond = fullArray.filter(Boolean);
+// here Boolean method simply return true or false
+
+console.log(filterArray);
+
+
+
+// Example-06: Remove falsy value from object
+/*
+    Falsy values -> `undefined, null, false, 0, '', NaN`
+*/
+const fullObject = {a: `javaScript`, b: undefined, c: ``, d: false, e: 55, f: `python`, g: true, h: NaN, i: `stack`, j: null};
+
+const filterObject = function(fullObject) {
+    for(let iteration in fullObject) {
+        if(!fullObject[iteration]) {
+            delete fullObject[iteration];
+        }
+    }
+
+    return fullObject;
+};
+
+console.log(filterObject(fullObject));

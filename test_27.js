@@ -50,3 +50,10 @@ String.prototype.garbage = function() {
 let str = `Unallowed`
 
 console.log(str.garbage());
+
+
+
+// Array().prototype
+// Same theory as Object.prototype
+const arr = new Array();    // same as const arr = []
+console.log(arr);
